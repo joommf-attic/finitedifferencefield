@@ -1,14 +1,10 @@
-.. image:: https://travis-ci.org/joommf/oommffield.svg?branch=master
-  :target: https://travis-ci.org/joommf/oommffield
+.. image:: https://travis-ci.org/joommf/finitedifferencefield.svg?branch=master
+  :target: https://travis-ci.org/joommf/finitedifferencefield
   :align: left
 
-.. image:: https://codecov.io/gh/joommf/oommffield/branch/master/graph/badge.svg
-  :target: https://codecov.io/gh/joommf/oommffield
+.. image:: https://codecov.io/gh/joommf/finitedifferencefield/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/joommf/finitedifferencefield
   :align: right
-
-.. image:: https://readthedocs.org/projects/oommffield/badge/?version=latest
-  :target: http://oommffield.readthedocs.io/en/latest/?badge=latest
-  :alt: Documentation Status
 
 This module is a Python package that provides:
 
