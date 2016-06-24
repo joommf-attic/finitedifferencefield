@@ -74,12 +74,12 @@ class Field(object):
 
           .. code-block:: python
 
-             from oommffield import Field
-             cmin = (0, 0, 0)
-             cmax = (10, 5, 3)
-             d = (1, 0.5, 0.1)
-             value = (0.5, -0.3, 6)
-             field = Field(cmin, cmax, d, value=value, name='fdfield')
+            >>> from oommffield import Field
+            >>> cmin = (0, 0, 0)
+            >>> cmax = (10, 5, 3)
+            >>> d = (1, 0.5, 0.1)
+            >>> value = (0.5, -0.3, 6)
+            >>> field = Field(cmin, cmax, d, value=value, name='fdfield')
 
         """
         # Raise exceptions if invalid arguments are provided.
@@ -148,12 +148,15 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
-           field = Field((0, 0, 0), (10, 10, 10), (1, 1, 1),
-                                value=(1, 0, -5), name='fdfield')
-
-           c = (5.5, 0.5, 3.5)
-           print field(c)
+          >>> from oommffield import Field
+          >>> cmin = (0, 0, 0)
+          >>> cmax = (10, 10, 10)
+          >>> d = (1, 1, 1)
+          >>> value = (1, 0, -5)
+          >>> field = Field(cmin, cmax, d, value)
+          >>> c = (5.5, 0.5, 3.5)
+          >>> field(c)
+          array([ 1.,  0., -5.])
 
         """
         return self.sample(c)
@@ -168,10 +171,11 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
-           field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
+          >>> from oommffield import Field
+          >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
-           print field.domain_centre()
+          >>> field.domain_centre()
+          (2.5, 2.0, 1.5)
 
         """
         c = (self.cmin[0] + 0.5*self.l[0],
@@ -193,7 +197,7 @@ class Field(object):
            from oommffield import Field
            field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
-           print field.random_coord()
+           field.random_coord()
 
         """
         c = (self.cmin[0] + random.random()*self.l[0],
@@ -222,11 +226,12 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
-           field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
+           >>> from oommffield import Field
+           >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
-           i = (2, 2, 1)
-           print field.index2coord(i)
+           >>> i = (2, 2, 1)
+           >>> field.index2coord(i)
+           (2.5, 2.5, 1.5)
 
         """
         if i[0] < 0 or i[0] > self.n[0]-1 or \
@@ -261,11 +266,12 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
-           field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
+           >>> from oommffield import Field
+           >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
-           c = (2.3, 2.1, 0.8)
-           print field.coord2index(i)
+           >>> c = (2.3, 2.1, 0.8)
+           >>> field.coord2index(c)
+           (2, 2, 0)
 
         """
         if c[0] < self.cmin[0] or c[0] > self.cmax[0] or \
@@ -303,11 +309,12 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
-           field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
+          >>> from oommffield import Field
+          >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
-           c = (2.3, 2.1, 0.8)
-           print field.nearestcellcoord(i)
+          >>> c = (2.3, 2.1, 0.8)
+          >>> field.nearestcellcoord(c)
+          (2.5, 2.5, 0.5)
 
         """
         return self.index2coord(self.coord2index(c))
@@ -329,11 +336,12 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
-           field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
+           >>> from oommffield import Field
+           >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
-           c = (2.3, 2.1, 0.8)
-           print field.sample(i)
+           >>> c = (2.3, 2.1, 0.8)
+           >>> field.sample(c)
+           array([ 0.,  0.,  0.])
 
         """
         i = self.coord2index(c)
@@ -356,24 +364,23 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
-           field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
+           >>> from oommffield import Field
+           >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
-           # Set the field value with int/float
-           value = 2.1
-           field.set(value)
+           >>> # Set the field value with int/float
+           >>> value = 2.1
+           >>> field.set(value)
 
-           # Set the field value with list/tuple/np.ndarray
-           value = [1, -0.2, 3.5]
-           field.set(value, normalise=True)
+           >>> # Set the field value with list/tuple/np.ndarray
+           >>> value = [1, -0.2, 3.5]
+           >>> field.set(value, normalise=True)
 
-           # Set the field value using Python function.
-           def m_init(pos):
-               x, y, z = pos
+           >>> # Set the field value using Python function.
+           >>> def m_init(pos):
+           ...     x, y, z = pos
+           ...     return (x+1, x**2+y, -z)
 
-               return (x+1, x**2+y, -z)
-
-           field.set(m_init)
+           >>> field.set(m_init)
 
         """
         # value is an int or float.
@@ -414,13 +421,14 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
-           field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
+           >>> from oommffield import Field
+           >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
-           i = (2, 2, 1)
-           value = 5
-           print field.set_at_index(i, value)
-
+           >>> i = (2, 2, 1)
+           >>> value = 5
+           >>> field.set_at_index(i, value)
+           >>> field.f[2, 2, 1]
+           array([ 5.,  5.,  5.])
         """
         self.f[i[0], i[1], i[2], :] = value
 
@@ -434,11 +442,12 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
-           field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
+           >>> from oommffield import Field
+           >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
-           field.set((1, 0, 5))
-           print field.average()
+           >>> field.set((1, 0, 5))
+           >>> field.average()
+           [1.0, 0.0, 5.0]
 
         """
         # Scalar field.
@@ -477,10 +486,10 @@ class Field(object):
         .. code-block:: python
 
            from oommffield import Field
-           field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
+           field = Field((0, 0, 0), (2, 2, 2), (1, 1, 1))
 
            field.set((1, 0, 5))
-           print field.slice_field('z', 0.5)
+           field.slice_field('z', 0.5)
 
         """
         if axis == 'x':
@@ -616,11 +625,11 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
-           field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
+           >>> from oommffield import Field
+           >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
-           field.set((1, 0, 5))
-           print field.normalise(5)
+           >>> field.set((1, 0, 5))
+           >>> field.normalise(5)
 
         """
         # Scalar field.
