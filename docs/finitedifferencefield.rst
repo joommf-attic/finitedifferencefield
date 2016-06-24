@@ -1,5 +1,5 @@
-OOMMFField
-==========
+finitedifferencefield
+=====================
 
 .. automodule:: finitedifferencefield
 
