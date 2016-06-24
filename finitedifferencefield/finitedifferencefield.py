@@ -74,7 +74,7 @@ class Field(object):
 
           .. code-block:: python
 
-            >>> from oommffield import Field
+            >>> from finitedifferencefield import Field
             >>> cmin = (0, 0, 0)
             >>> cmax = (10, 5, 3)
             >>> d = (1, 0.5, 0.1)
@@ -148,12 +148,12 @@ class Field(object):
 
         .. code-block:: python
 
-          >>> from oommffield import Field
+          >>> from finitedifferencefield import Field
           >>> cmin = (0, 0, 0)
           >>> cmax = (10, 10, 10)
           >>> d = (1, 1, 1)
           >>> value = (1, 0, -5)
-          >>> field = Field(cmin, cmax, d, value)
+          >>> field = Field(cmin, cmax, d, value=value)
           >>> c = (5.5, 0.5, 3.5)
           >>> field(c)
           array([ 1.,  0., -5.])
@@ -171,7 +171,7 @@ class Field(object):
 
         .. code-block:: python
 
-          >>> from oommffield import Field
+          >>> from finitedifferencefield import Field
           >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
           >>> field.domain_centre()
@@ -194,7 +194,7 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
+           from finitedifferencefield import Field
            field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
            field.random_coord()
@@ -226,7 +226,7 @@ class Field(object):
 
         .. code-block:: python
 
-           >>> from oommffield import Field
+           >>> from finitedifferencefield import Field
            >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
            >>> i = (2, 2, 1)
@@ -266,7 +266,7 @@ class Field(object):
 
         .. code-block:: python
 
-           >>> from oommffield import Field
+           >>> from finitedifferencefield import Field
            >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
            >>> c = (2.3, 2.1, 0.8)
@@ -309,7 +309,7 @@ class Field(object):
 
         .. code-block:: python
 
-          >>> from oommffield import Field
+          >>> from finitedifferencefield import Field
           >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
           >>> c = (2.3, 2.1, 0.8)
@@ -336,7 +336,7 @@ class Field(object):
 
         .. code-block:: python
 
-           >>> from oommffield import Field
+           >>> from finitedifferencefield import Field
            >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
            >>> c = (2.3, 2.1, 0.8)
@@ -364,7 +364,7 @@ class Field(object):
 
         .. code-block:: python
 
-           >>> from oommffield import Field
+           >>> from finitedifferencefield import Field
            >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
            >>> # Set the field value with int/float
@@ -421,7 +421,7 @@ class Field(object):
 
         .. code-block:: python
 
-           >>> from oommffield import Field
+           >>> from finitedifferencefield import Field
            >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
            >>> i = (2, 2, 1)
@@ -442,7 +442,7 @@ class Field(object):
 
         .. code-block:: python
 
-           >>> from oommffield import Field
+           >>> from finitedifferencefield import Field
            >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
            >>> field.set((1, 0, 5))
@@ -485,7 +485,7 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
+           from finitedifferencefield import Field
            field = Field((0, 0, 0), (2, 2, 2), (1, 1, 1))
 
            field.set((1, 0, 5))
@@ -561,7 +561,7 @@ class Field(object):
 
         .. code-block:: python
 
-           from oommffield import Field
+           from finitedifferencefield import Field
            field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
            field.set((1, 0, 5))
@@ -625,7 +625,7 @@ class Field(object):
 
         .. code-block:: python
 
-           >>> from oommffield import Field
+           >>> from finitedifferencefield import Field
            >>> field = Field((0, 0, 0), (5, 4, 3), (1, 1, 1))
 
            >>> field.set((1, 0, 5))
