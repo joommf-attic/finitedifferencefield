@@ -13,8 +13,8 @@ install: pip install codecov pytest-cov matplotlib jupyter git+https://github.co
 # command to run tests
 script:
   - py.test --cov=finitedifferencefield --cov-config .coveragerc
-  - py.test --doctest-modules
   - py.test --nbval docs/ipynb/*.ipynb
+  - py.test --doctest-modules finitedifferencefield/*.py
 after_success:
   codecov
 notifications:
