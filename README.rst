@@ -5,6 +5,10 @@
 .. image:: https://codecov.io/gh/joommf/finitedifferencefield/branch/master/graph/badge.svg
   :target: https://codecov.io/gh/joommf/finitedifferencefield
   :align: right
+  
+.. image:: https://readthedocs.org/projects/finitedifferencefield/badge/?version=latest
+  :target: http://finitedifferencefield.readthedocs.io/en/latest/?badge=latest
+  :alt: Documentation Status
 
 This module is a Python package that provides:
 
