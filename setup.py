@@ -10,6 +10,8 @@ setup(
     long_description=readme,
     author='Computational Modelling Group',
     author_email='fangohr@soton.ac.uk',
+    url = 'https://github.com/joommf/finitedifferencefield',
+    download_url = 'https://github.com/joommf/finitedifferencefield/tarball/0.1',
     packages=['finitedifferencefield', 'finitedifferencefield.tests'],
     classifiers=[
         'License :: OSI Approved :: BSD License',
