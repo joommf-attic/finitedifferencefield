@@ -10,6 +10,9 @@
   :target: http://finitedifferencefield.readthedocs.io/en/latest/?badge=latest
   :alt: Documentation Status
 
+.. image:: https://badge.fury.io/py/finitedifferencefield.svg
+  :target: https://badge.fury.io/py/finitedifferencefield
+
 This module is a Python package that provides:
 
 - Analysing finite difference fields, such as sampling, averaging, plotting, etc.
